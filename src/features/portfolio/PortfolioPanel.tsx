@@ -24,11 +24,58 @@
 //    What is an associated token account, and who pays rent for it?
 //  - Apollo's normalized cache vs React-Query's key cache: what did you get
 //    for free at Parity that you have to do by hand here?
+import { useQuery } from '@tanstack/react-query'
+import { useAccounts } from '@phantom/react-sdk'
+import { PublicKey } from '@solana/web3.js'
+import { connection } from '../../config'
+import { formatUnits } from '../../lib/lamports.ts'
+
 export function PortfolioPanel() {
+  const accounts = useAccounts()
+
+  const solanaAddress =
+    (accounts ?? []).find((account) => account.addressType === 'Solana')?.address ?? ''
+  const {
+    data: balance,
+    isPending,
+    error,
+  } = useQuery({
+    queryKey: ['balance', solanaAddress],
+    enabled: !!solanaAddress,
+    queryFn: async () => BigInt(await connection.getBalance(new PublicKey(solanaAddress!))),
+  })
+
+  if (!solanaAddress) {
+    return (
+      <section>
+        <h2>2 · Portfolio</h2>
+        <p className="muted">Connect a wallet first.</p>
+      </section>
+    )
+  }
+
+  if (isPending) {
+    return (
+      <section>
+        <h2>2 · Portfolio</h2>
+        <p className="muted">Loading...</p>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section>
+        <h2>2 · Portfolio</h2>
+        <p className="muted">An error has occurred: {error.message}</p>
+      </section>
+    )
+  }
+
   return (
     <section>
       <h2>2 · Portfolio</h2>
-      <p className="muted">Not built yet — see the comment at the top of PortfolioPanel.tsx.</p>
+      <p className="muted">Solana balance: {formatUnits(balance, 9)}.</p>
     </section>
   )
 }
