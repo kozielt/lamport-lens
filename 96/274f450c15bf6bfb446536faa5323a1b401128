@@ -1,0 +1,19 @@
+.github/workflows/deploy.yml
+  s_0af16a78197c11::t_1b0b021c6b4a2e 21-22,24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "96274f450c15bf6bfb446536faa5323a1b401128",
+  "prompts": {},
+  "sessions": {
+    "s_0af16a78197c11": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9aaf08ae-35f3-4e89-8435-ab22256c9eb7",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "kozielt <koziel1t@gmail.com>"
+    }
+  }
+}
