@@ -15,3 +15,6 @@ export const explorerTxUrl = (signature: string) =>
 
 export const explorerAddressUrl = (address: string) =>
   `https://explorer.solana.com/address/${address}?cluster=devnet`
+
+export const ACCOUNT_1_ADDRESS = '9xV3f49ahjQrosL5AMVLxZgUxWzwRq2e3qkZHbaLyKWh'
+export const ACCOUNT_2_ADDRESS = 'ACfc9Ntyoi3G4MDyGuJWcUfYEKPPGQBDmp23ytUxFByH'
