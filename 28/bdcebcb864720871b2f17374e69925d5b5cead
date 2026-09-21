@@ -1,0 +1,19 @@
+package-lock.json
+  s_0af16a78197c11::t_62032610a12043 3,9-10,1494-1508,2010-2024,2468-2478,2610-2624,3488-3502
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "28bdcebcb864720871b2f17374e69925d5b5cead",
+  "prompts": {},
+  "sessions": {
+    "s_0af16a78197c11": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9aaf08ae-35f3-4e89-8435-ab22256c9eb7",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "kozielt <koziel1t@gmail.com>"
+    }
+  }
+}
