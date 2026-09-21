@@ -1,0 +1,27 @@
+src/config.ts
+  h_a035c493798056 18-20
+src/features/send/SendPanel.tsx
+  h_a035c493798056 16-27,29-38,40-61,65-66
+  s_0af16a78197c11::t_52181000e959b0 28,62-64,67-95,99-117
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "d60b06d49620a3de43905a9d538c151baa43019d",
+  "prompts": {},
+  "humans": {
+    "h_a035c493798056": {
+      "author": "kozielt <koziel1t@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_0af16a78197c11": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9aaf08ae-35f3-4e89-8435-ab22256c9eb7",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "kozielt <koziel1t@gmail.com>"
+    }
+  }
+}
