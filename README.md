@@ -13,16 +13,18 @@ Every amount in this app stays an integer from the RPC response to the screen.
 
 ## What it does
 
-| #   | Feature                                                                                        | Status |
-| --- | ---------------------------------------------------------------------------------------------- | ------ |
-| 1   | Connect through the Phantom Connect SDK — browser extension (embedded wallet behind an App ID) | done   |
-| 1b  | The same connect flow against the raw injected provider (`window.phantom.solana`), no SDK      | todo   |
-| 2   | Portfolio: SOL and SPL token balances with React-Query; `bigint` maths, no floats              | todo   |
-| 3   | Live balance: `onAccountChange` WebSocket subscription written into the React-Query cache      | todo   |
-| 4   | Send flow as an explicit state machine, optimistic balance with rollback, expiry handling      | todo   |
-| 5   | Sign in with a signed message, Ed25519 verification with tweetnacl                             | todo   |
+| #   | Feature                                                                                   | Status      |
+| --- | ----------------------------------------------------------------------------------------- | ----------- |
+| 1   | Connect through the Phantom Connect SDK (browser extension)                               | done        |
+| 2a  | Exact money maths: `formatUnits` / `parseUnits` on `bigint`, no floats, 13 tests          | done        |
+| 2b  | Portfolio: SOL and SPL token balances with React-Query                                    | in progress |
+| 4   | Send flow as an explicit state machine, optimistic balance with rollback, expiry handling | todo        |
+| 3   | Live balance: `onAccountChange` WebSocket subscription written into the React-Query cache | todo        |
+| 1b  | The same connect flow against the raw injected provider (`window.phantom.solana`), no SDK | todo        |
+| 5   | Sign in with a signed message, Ed25519 verification with tweetnacl                        | todo        |
 
-Each unfinished feature is a stub whose top comment is the task statement.
+Rows are in build order. Each feature's file starts with its task statement:
+goal, steps, a done-when checklist, and questions to answer out loud.
 [`DX-NOTES.md`](./DX-NOTES.md) is my running log of what was confusing or
 surprising while integrating the SDK.
 
