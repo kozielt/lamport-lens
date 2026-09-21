@@ -11,11 +11,42 @@
 // 6 for USDC.
 
 /** 1_500_000_000n → "1.5" · 1n → "0.000000001" · 0n → "0" */
-export function formatUnits(_amount: bigint, _decimals: number): string {
-  return 'TODO'
+
+const trimValue = (value: string) => {
+  if (value === '0') {
+    return value
+  }
+  let newValue = value
+  while (newValue.startsWith('0') && !newValue.startsWith('0.')) {
+    newValue = newValue.slice(1)
+  }
+
+  while ((newValue.includes('.') && newValue.endsWith('0')) || newValue.endsWith('.')) {
+    if (newValue === '0') {
+      return newValue
+    }
+    newValue = newValue.slice(0, newValue.length - 1)
+  }
+  return newValue
+}
+
+export function formatUnits(amount: bigint, decimals: number): string {
+  const stringValue = amount.toString()
+  const withLeftPadding = '0'.repeat(decimals) + stringValue
+  const withADot = withLeftPadding.slice(0, withLeftPadding.length - decimals) + '.' + withLeftPadding.slice(withLeftPadding.length - decimals)
+  return trimValue(withADot)
 }
 
 /** "1.5" → 1_500_000_000n. Throws on malformed input or too many decimals. */
-export function parseUnits(_input: string, _decimals: number): bigint {
-  return -1n
+export function parseUnits(input: string, decimals: number): bigint {
+  const dotIndex = input.indexOf('.')
+  const zeroes = '0'.repeat(decimals)
+  let newValue = input + zeroes
+  console.log('>>>> stuff', newValue)
+  if (dotIndex === -1) {
+    return BigInt(newValue)
+  }
+  newValue = newValue.replace('.', '')
+  console.log('stuff', trimValue(newValue.slice(0, dotIndex + decimals) + '.' + newValue.slice(dotIndex + decimals)))
+  return BigInt(trimValue(newValue.slice(0, dotIndex + decimals) + '.' + newValue.slice(dotIndex + decimals)))
 }
