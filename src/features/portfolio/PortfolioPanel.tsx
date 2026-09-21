@@ -1,42 +1,6 @@
-// DRILL 2b — portfolio panel with React-Query                       [60 min]
-// Do it: after 2a. See it in the "2 · Portfolio" box on localhost:5173
-// (connect in panel 1 first).
-//
-// GOAL
-//   The box shows the connected wallet's SOL balance ("5 SOL") and a list of
-//   the tokens it holds.
-//
-// STEPS — part B, token list
-//   6. Second query, key ['tokenAccounts', address], same `enabled`:
-
-//      Never use `tokenAmount.uiAmount` — it is a float.
-//   7. Render one row per token: shortened mint (`EPjF…Dt1v`) and
-//      `formatUnits(amount, decimals)`. Hide rows where amount === 0n.
-//   8. Empty state: "No tokens". (Your wallet has none yet — to get one, use
-//      https://spl-token-faucet.com on devnet.)
-//   9. Move the two query keys into `queryKeys.ts` in this folder and export
-//      them — drills 3 and 4 write into the balance key.
-//
-// DONE WHEN
-//   [x] Box shows the balance, matching the extension
-//   [x] Disconnect in panel 1 → "Connect a wallet first", not "Loading…"
-//   [x] Balance reads "5 SOL" (unit shown)
-//   [x] Error state has a working Retry (test: put
-//       VITE_RPC_URL=https://bad.example.com in .env.local, restart dev,
-//       see the error + button, then delete the file)
-//   [ ] Token list renders, or shows "No tokens"
-//   [ ] Switch account in the extension → the other account's balance
-//
-// TALK ALOUD
-//   - staleTime for a balance: what number, and why?
-//   - Why is a token balance a separate account, not a field on yours?
-//   - Apollo's normalized cache vs React-Query's key cache: what did Apollo
-//     do for you at Parity that you do by hand here?
-// import * as React from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { useAccounts } from '@phantom/react-sdk'
+import { useAccounts, usePhantom } from '@phantom/react-sdk'
 import { PublicKey } from '@solana/web3.js'
-import { usePhantom } from '@phantom/react-sdk'
 import { connection } from '../../config'
 import { formatUnits } from '../../lib/lamports.ts'
 
@@ -113,7 +77,7 @@ export function PortfolioPanel() {
   return (
     <section>
       <h2>2 · Portfolio</h2>
-      <p className="muted">Solana balance: {formatUnits(balance, 9)}SOL.</p>
+      <p className="muted">Solana balance: {formatUnits(balance, 9)} SOL.</p>
       {tokensWithDefault.length === 0 ? (
         <p className="muted">No tokens.</p>
       ) : (
