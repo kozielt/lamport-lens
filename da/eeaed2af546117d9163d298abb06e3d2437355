@@ -1,0 +1,73 @@
+.env.example
+  s_0af16a78197c11::t_b9a541564967fc 1-10
+.github/workflows/deploy.yml
+  s_0af16a78197c11::t_e2767c422e3509 1-46
+.gitignore
+  s_0af16a78197c11::t_d830a1b5740d56 1-24
+.oxlintrc.json
+  s_0af16a78197c11::t_dac3996c4a3d6c 1-8
+DX-NOTES.md
+  s_0af16a78197c11::t_90d886fc24fe9e 1-36
+LICENSE
+  s_0af16a78197c11::t_e7aed0c4ebaee5 1-21
+README.md
+  s_0af16a78197c11::t_b8e79200ef1bb2 1-54
+index.html
+  s_0af16a78197c11::t_382706d3b54bcf 1-13
+package-lock.json
+  s_0af16a78197c11::t_60dd31c0b326fe 1-3733
+package.json
+  s_0af16a78197c11::t_ddb8ec2fd41282 1-37
+public/favicon.svg
+  s_0af16a78197c11::t_e0bc3db23fb818 1
+src/App.tsx
+  s_0af16a78197c11::t_89b981f7ebc23d 1-23
+src/features/connect/ConnectPanel.tsx
+  s_0af16a78197c11::t_09fe8f65fe8cf8 1-60
+src/features/connect/RawProviderPanel.tsx
+  s_0af16a78197c11::t_aabce27c14b7b0 1-34
+src/features/portfolio/PortfolioPanel.tsx
+  s_0af16a78197c11::t_0585821acbe4e5 1-34
+src/features/portfolio/useLiveBalance.ts
+  s_0af16a78197c11::t_09c56e5729e33f 1-30
+src/features/send/SendPanel.tsx
+  s_0af16a78197c11::t_d23af93f63c5a4 1-48
+src/features/signin/SignInPanel.tsx
+  s_0af16a78197c11::t_ccc799cd66388f 1-32
+src/index.css
+  s_0af16a78197c11::t_62619aca4b5d40 1-101
+src/lib/lamports.test.ts
+  s_0af16a78197c11::t_78126671387eb1 1-54
+src/lib/lamports.ts
+  s_0af16a78197c11::t_d6f552bfe9fb5e 1-21
+src/main.tsx
+  s_0af16a78197c11::t_a29c2d5a6acc80 1-32
+src/vite-env.d.ts
+  s_0af16a78197c11::t_4ea48fc939cf23 1-13
+tsconfig.app.json
+  s_0af16a78197c11::t_60b10282d16ac8 1-26
+tsconfig.json
+  s_0af16a78197c11::t_8d4bd364595ac1 1-7
+tsconfig.node.json
+  s_0af16a78197c11::t_4cf46314d7f8f5 1-23
+vite.config.ts
+  s_0af16a78197c11::t_89337ef849921f 1-17
+src/config.ts
+  s_0af16a78197c11::t_eaf6589c3f0ff5 1-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "daeeaed2af546117d9163d298abb06e3d2437355",
+  "prompts": {},
+  "sessions": {
+    "s_0af16a78197c11": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9aaf08ae-35f3-4e89-8435-ab22256c9eb7",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "kozielt <koziel1t@gmail.com>"
+    }
+  }
+}
