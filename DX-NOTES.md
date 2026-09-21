@@ -34,3 +34,18 @@ in `vite.config.ts` (covers dependencies too), and `globalThis.Buffer ??= Buffer
 in `main.tsx`.
 Would have helped: a note in the SDK quick start, or examples on `@solana/kit`,
 which has no such requirement.
+
+## 2026-09-21 — Phantom Portal: new sign-ups are paused
+
+Expected: register at phantom.com/portal, get an App ID, try the embedded
+wallet (Google login) — the SDK's headline feature.
+Happened: "New sign ups are paused. The Phantom Developer Portal isn't
+accepting new developer accounts right now… email partnerships@phantom.app from
+your company email address." An individual developer has no route in.
+Meanwhile the docs quick start still opens with "register your app".
+Checked the source (`@phantom/browser-sdk` 2.0.3): `appId` is only enforced when
+`providers` contains something other than `'injected'`, so the extension path
+works with no account at all.
+Would have helped: a banner in the docs, and the quick start leading with the
+injected-only config, which needs no registration. A public sandbox App ID
+limited to devnet would let people evaluate the embedded wallet too.

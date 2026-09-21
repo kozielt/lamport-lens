@@ -15,7 +15,7 @@ Every amount in this app stays an integer from the RPC response to the screen.
 
 | #   | Feature                                                                                         | Status |
 | --- | ----------------------------------------------------------------------------------------------- | ------ |
-| 1   | Connect through the Phantom Connect SDK — browser extension, or embedded wallet via Google      | done   |
+| 1   | Connect through the Phantom Connect SDK — browser extension (embedded wallet behind an App ID)  | done   |
 | 1b  | The same connect flow against the raw injected provider (`window.phantom.solana`), no SDK       | todo   |
 | 2   | Portfolio: SOL and SPL token balances with React-Query; `bigint` maths, no floats               | todo   |
 | 3   | Live balance: `onAccountChange` WebSocket subscription written into the React-Query cache       | todo   |
@@ -39,9 +39,11 @@ You need the [Phantom extension](https://phantom.com/download) with devnet on:
 Settings → Developer Settings → Testnet Mode → Solana Devnet. Free devnet SOL:
 <https://faucet.solana.com>.
 
+Everything here runs against the extension alone, with no developer account.
 The embedded wallet (Google login) additionally needs an App ID from
-[Phantom Portal](https://phantom.com/portal) — copy `.env.example` to
-`.env.local` and fill it in. Without it the app offers the extension only.
+[Phantom Portal](https://phantom.com/portal) in `.env.local` (see
+`.env.example`). As of September 2026 the Portal has paused new sign-ups, so
+this build ships extension-only; the code path is in place for when it reopens.
 
 ## Stack
 

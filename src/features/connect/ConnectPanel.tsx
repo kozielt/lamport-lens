@@ -52,7 +52,9 @@ export function ConnectPanel() {
         )}
       </div>
       {!PHANTOM_APP_ID && (
-        <p className="muted">Set VITE_PHANTOM_APP_ID to enable the embedded wallet (Google login).</p>
+        <p className="muted">
+          Extension only. The embedded wallet (Google login) needs a Phantom Portal App ID.
+        </p>
       )}
       {error && <p className="error">{error.message}</p>}
     </section>
