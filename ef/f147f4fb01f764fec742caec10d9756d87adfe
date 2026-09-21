@@ -1,0 +1,15 @@
+src/features/portfolio/PortfolioPanel.tsx
+  h_a035c493798056 2
+  h_a035c493798056 80
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "eff147f4fb01f764fec742caec10d9756d87adfe",
+  "prompts": {},
+  "humans": {
+    "h_a035c493798056": {
+      "author": "kozielt <koziel1t@gmail.com>"
+    }
+  }
+}
