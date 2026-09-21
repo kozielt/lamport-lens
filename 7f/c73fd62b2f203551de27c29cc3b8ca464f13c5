@@ -1,0 +1,25 @@
+.env.example
+  s_0af16a78197c11::t_6d84362a93e406 3-7
+DX-NOTES.md
+  s_0af16a78197c11::t_011ff9e561630e 37-51
+README.md
+  s_0af16a78197c11::t_13993f4042cd17 18,42,44-46
+src/features/connect/ConnectPanel.tsx
+  s_0af16a78197c11::t_db2d55295f0a90 55-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "7fc73fd62b2f203551de27c29cc3b8ca464f13c5",
+  "prompts": {},
+  "sessions": {
+    "s_0af16a78197c11": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9aaf08ae-35f3-4e89-8435-ab22256c9eb7",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "kozielt <koziel1t@gmail.com>"
+    }
+  }
+}
