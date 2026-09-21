@@ -11,42 +11,26 @@
 // 6 for USDC.
 
 /** 1_500_000_000n → "1.5" · 1n → "0.000000001" · 0n → "0" */
-
-const trimValue = (value: string) => {
-  if (value === '0') {
-    return value
-  }
-  let newValue = value
-  while (newValue.startsWith('0') && !newValue.startsWith('0.')) {
-    newValue = newValue.slice(1)
-  }
-
-  while ((newValue.includes('.') && newValue.endsWith('0')) || newValue.endsWith('.')) {
-    if (newValue === '0') {
-      return newValue
-    }
-    newValue = newValue.slice(0, newValue.length - 1)
-  }
-  return newValue
-}
-
 export function formatUnits(amount: bigint, decimals: number): string {
-  const stringValue = amount.toString()
-  const withLeftPadding = '0'.repeat(decimals) + stringValue
-  const withADot = withLeftPadding.slice(0, withLeftPadding.length - decimals) + '.' + withLeftPadding.slice(withLeftPadding.length - decimals)
-  return trimValue(withADot)
+  // padStart guarantees at least one digit before the dot: 1n → "0000000001"
+  const withLeftPadding = amount.toString().padStart(decimals + 1, '0')
+  const whole = withLeftPadding.slice(0, withLeftPadding.length - decimals)
+  const fraction = withLeftPadding.slice(withLeftPadding.length - decimals).replace(/0+$/, '')
+  return fraction ? `${whole}.${fraction}` : whole
 }
+
+// Digits with at most one dot, and at least one digit: "2", "1.5", ".5", "5."
+// Validated up front because BigInt() is lenient: it accepts "", " 1", "-1", "0x10".
+const AMOUNT_PATTERN = /^(\d+\.?\d*|\.\d+)$/
 
 /** "1.5" → 1_500_000_000n. Throws on malformed input or too many decimals. */
 export function parseUnits(input: string, decimals: number): bigint {
-  const dotIndex = input.indexOf('.')
-  const zeroes = '0'.repeat(decimals)
-  let newValue = input + zeroes
-  console.log('>>>> stuff', newValue)
-  if (dotIndex === -1) {
-    return BigInt(newValue)
+  if (!AMOUNT_PATTERN.test(input)) {
+    throw new Error(`Invalid amount: "${input}"`)
   }
-  newValue = newValue.replace('.', '')
-  console.log('stuff', trimValue(newValue.slice(0, dotIndex + decimals) + '.' + newValue.slice(dotIndex + decimals)))
-  return BigInt(trimValue(newValue.slice(0, dotIndex + decimals) + '.' + newValue.slice(dotIndex + decimals)))
+  const [whole, fraction = ''] = input.split('.')
+  if (fraction.length > decimals) {
+    throw new Error(`Too many decimals in "${input}": max ${decimals}`)
+  }
+  return BigInt((whole || '0') + fraction.padEnd(decimals, '0'))
 }
