@@ -1,0 +1,18 @@
+src/lib/lamports.test.ts
+  h_a035c493798056 4,49
+src/lib/lamports.ts
+  h_a035c493798056 14-37,41-51
+package-lock.json
+  h_a035c493798056 187-196
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "d8017d8320041ba3914483fcdf2c3bf6d51470ec",
+  "prompts": {},
+  "humans": {
+    "h_a035c493798056": {
+      "author": "kozielt <koziel1t@gmail.com>"
+    }
+  }
+}
