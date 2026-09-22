@@ -1,0 +1,36 @@
+README.md
+  s_0af16a78197c11::t_88ca996c8feba7 20-24,27-28
+src/features/connect/RawProviderPanel.tsx
+  s_0af16a78197c11::t_50518eab6f20c3 55-85,87-150,154-172
+src/features/portfolio/PortfolioPanel.tsx
+  s_0af16a78197c11::t_502bfdc89c500d 6-7,13,42,48,83-86
+src/features/portfolio/queryKeys.ts
+  s_0af16a78197c11::t_0874c8811e9696 1-4
+src/features/portfolio/useLiveBalance.ts
+  s_0af16a78197c11::t_b85828c28c53eb 42-85
+src/features/signin/SignInPanel.tsx
+  s_0af16a78197c11::t_a96b55c850c47c 45-74,76-117,121-136
+src/index.css
+  s_0af16a78197c11::t_3ec2b9fee61946 102-111
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "241a027477045c5f93f8de761026ffcd0a799e13",
+  "prompts": {},
+  "humans": {
+    "h_a035c493798056": {
+      "author": "kozielt <koziel1t@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_0af16a78197c11": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9aaf08ae-35f3-4e89-8435-ab22256c9eb7",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "kozielt <koziel1t@gmail.com>"
+    }
+  }
+}
