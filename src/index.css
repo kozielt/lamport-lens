@@ -99,3 +99,13 @@ button:disabled {
   margin: 8px 0 0;
   color: var(--error);
 }
+
+pre {
+  margin: 12px 0 0;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+}

@@ -3,12 +3,14 @@ import { useAccounts, usePhantom } from '@phantom/react-sdk'
 import { PublicKey } from '@solana/web3.js'
 import { connection } from '../../config'
 import { formatUnits } from '../../lib/lamports.ts'
+import { balanceKey, tokenAccountsKey } from './queryKeys'
+import { useLiveBalance } from './useLiveBalance'
 
 const TOKEN_PROGRAM_ID = new PublicKey('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA')
 
 const useTokenAccounts = (solanaAddress: string) =>
   useQuery({
-    queryKey: ['tokenAccounts', solanaAddress],
+    queryKey: tokenAccountsKey(solanaAddress),
     enabled: !!solanaAddress,
     queryFn: async () => {
       const res = await connection.getParsedTokenAccountsByOwner(new PublicKey(solanaAddress), {
@@ -37,12 +39,13 @@ export function PortfolioPanel() {
     error,
     refetch,
   } = useQuery({
-    queryKey: ['balance', solanaAddress],
+    queryKey: balanceKey(solanaAddress),
     enabled: !!solanaAddress && isConnected,
     queryFn: async () => BigInt(await connection.getBalance(new PublicKey(solanaAddress!))),
   })
 
   const { data: tokens } = useTokenAccounts(solanaAddress)
+  const live = useLiveBalance(solanaAddress)
 
   const tokensWithDefault = tokens ?? []
 
@@ -77,7 +80,10 @@ export function PortfolioPanel() {
   return (
     <section>
       <h2>2 · Portfolio</h2>
-      <p className="muted">Solana balance: {formatUnits(balance, 9)} SOL.</p>
+      <p className="muted">
+        Solana balance: {formatUnits(balance, 9)} SOL{' '}
+        <span title="WebSocket accountSubscribe">{live ? '● live' : '○ polling only'}</span>
+      </p>
       {tokensWithDefault.length === 0 ? (
         <p className="muted">No tokens.</p>
       ) : (
