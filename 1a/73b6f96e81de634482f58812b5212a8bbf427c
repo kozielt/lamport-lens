@@ -1,0 +1,24 @@
+package-lock.json
+  s_2fce597136ebdf::t_aab3e4b5a1a869 239-241,256-258,273-275,290-292,307-309,324-326,341-343,358-360,375-377,392-394,409-411,426-428,443-445,460-462,477-479,494-496,511-513,528-530,545-547,1495-1509,2011-2025,2469-2479,2611-2625,3098-3100,3113-3131,3505-3519
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "1a73b6f96e81de634482f58812b5212a8bbf427c",
+  "prompts": {},
+  "humans": {
+    "h_a035c493798056": {
+      "author": "kozielt <koziel1t@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_2fce597136ebdf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_2fce597136ebdf",
+        "model": "unknown"
+      },
+      "human_author": "kozielt <koziel1t@gmail.com>"
+    }
+  }
+}
