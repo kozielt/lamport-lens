@@ -1,18 +1,5 @@
-// DRILL 4 — send SOL, as a state machine                            [90 min]
-// Do it: after 2b (3 is optional before this). See it in the "4 · Send" box.
-// This is the drill closest to real wallet work.
-//
-// GOAL
-//   A form sends devnet SOL to another address, and the box always tells the
-//   truth about where the transaction is: signing → sent → confirmed, or
-//   rejected / failed / expired.
-//
-// SETUP
-//   You need a second address to send to: in the Phantom extension add
-//   "Account 2" and copy its Devnet address.
-//
-// STEPS
-//   1. State — one discriminated union, not a pile of booleans:
+// Send SOL as a state machine. The panel always says where the transaction
+// is: signing → sent → confirmed, or rejected / failed.
 
 import * as React from 'react'
 import { useAccounts, useSolana } from '@phantom/react-sdk'

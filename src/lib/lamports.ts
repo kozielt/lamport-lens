@@ -1,15 +1,7 @@
-// DRILL 2a — money without floats                          [30 min] · DONE ✔
-//
-// GOAL
-//   Convert between on-chain integers and what a human reads, exactly.
-//   1 SOL = 1_000_000_000 lamports (9 decimals). USDC has 6 decimals.
-//
-// RULES
-//   bigint and string operations only. No Number(), parseFloat(), or
-//   division by 1e9 — floats lose money (0.1 + 0.2 !== 0.3).
-//
-// DONE WHEN
-//   [x] `npm test` → 13 passed
+// Money without floats: convert between on-chain integers and what a human
+// reads, exactly. 1 SOL = 1_000_000_000 lamports (9 decimals); USDC has 6.
+// bigint and string operations only. No Number(), parseFloat(), or division
+// by 1e9: floats lose money (0.1 + 0.2 !== 0.3).
 
 /** 1_500_000_000n → "1.5" · 1n → "0.000000001" · 0n → "0" */
 export function formatUnits(amount: bigint, decimals: number): string {

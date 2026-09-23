@@ -1,9 +1,8 @@
 # DX notes — integrating the Phantom Connect SDK
 
-A running log, newest at the bottom. One entry per thing that was confusing,
-surprising, broken, or notably good. Written as a developer using the SDK for
-the first time, so each entry says what I expected, what happened, and what
-would have helped.
+One entry per thing that was confusing, surprising, broken, or notably good
+while integrating the SDK, newest at the bottom. Each entry says what the docs
+led to expect, what actually happened, and what would have helped.
 
 Format:
 
